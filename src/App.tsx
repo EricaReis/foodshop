@@ -1,10 +1,15 @@
-import { Button } from "./components/ui/button";
+import { RouterProvider } from "react-router-dom";
 import "./global.css";
+import { router } from "./routes";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Toaster } from "sonner";
 
 export function App() {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <Button>Enviar</Button>
-    </div>
+    <HelmetProvider>
+      <Helmet titleTemplate="%s | food.shop" />
+      <Toaster richColors />
+      <RouterProvider router={router} />
+    </HelmetProvider>
   );
 }
